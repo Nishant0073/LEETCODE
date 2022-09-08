@@ -19,15 +19,19 @@ public:
                 while(k<n && nums2[k]<tmp)
                 {
                     nums2[k-1] = nums2[k];
-                    k++;
+                    k = k+1;
                 }
                 nums2[k-1] = tmp;
             }
-                i++;
+                i = i+1;
         }
         
         while(  j<n)
-            nums1[i++]=nums2[j++];
+        {
+            nums1[i]=nums2[j];
+            i=i+1;
+            j=j+1;
+        }
         return;
     }
 };
