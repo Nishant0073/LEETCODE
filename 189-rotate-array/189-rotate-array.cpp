@@ -4,7 +4,9 @@ public:
     {
         while(l<r)
         {
-            swap(nums[l++],nums[r--]);
+            swap(nums[l],nums[r]);
+            l = l+1;
+            r = r-1;
         }
     }
     void rotate(vector<int>& nums, int k) {
