@@ -8,11 +8,10 @@ public:
         }
     }
     void rotate(vector<int>& nums, int k) {
-          k = k%nums.size();
-        if(nums.size()==1)
-            return ;
+        int n = nums.size();
+        k = k%n;
         reverse(nums.begin(),nums.end());
         halfRotate(nums,0,k-1);
-        halfRotate(nums,k,nums.size()-1);
+        halfRotate(nums,k,n-1);
     }
 };
