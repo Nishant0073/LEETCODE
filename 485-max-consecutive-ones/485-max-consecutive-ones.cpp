@@ -10,11 +10,11 @@ public:
             {
                 int in = i;
                 while(i<n && nums[i]==1)
-                    i++;
+                    i = i+1;
                 mx = max(mx, i-in);
             }
             else
-                i++;
+                i = i+1;
         }
         return mx;
     }
