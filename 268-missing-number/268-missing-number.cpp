@@ -5,7 +5,7 @@ public:
         int sum = (n*(n+1)/2);
         int tsum = 0;
         for(int i=0;i<n;i++)
-            tsum=tsum+nums[i];
+            tsum+=nums[i];
         return (sum-tsum);
     }
 };
