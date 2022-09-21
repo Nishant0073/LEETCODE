@@ -10,11 +10,9 @@ public:
             sum+=it;
             
             if(mp.find(sum-k)!=mp.end())
-                ans+=mp[sum-k];
-            mp[sum]++;
+                ans= ans + mp[sum-k];
+            mp[sum] = mp[sum]+1;
         }
-        // for(auto it:mp)
-        //     cout<<it.first<<" "<<it.second<<endl;
         return ans;
     }
 };
