@@ -7,8 +7,7 @@ public:
         int ans = 0;
         for(auto it:nums)
         {
-            sum+=it;
-            
+            sum= sum+it;
             if(mp.find(sum-k)!=mp.end())
                 ans= ans + mp[sum-k];
             mp[sum] = mp[sum]+1;
