@@ -5,9 +5,10 @@ public:
          vector<int> v;
         for(int i=0;i<nums.size();i=i+1)
         {
-            if(mp.find(k-nums[i])!=mp.end())
+            int val = k-nums[i];
+            if(mp.find(val)!=mp.end())
             {
-                v= {mp[k-nums[i]],i};
+                v= {mp[val],i};
                 return v;
             }
             mp[nums[i]] = i;
