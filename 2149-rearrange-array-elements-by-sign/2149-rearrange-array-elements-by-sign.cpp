@@ -1,30 +1,30 @@
 class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
-        bool pos = true;
         int i=0;
         int j=0;
- 
+        int k=0;
         int n = nums.size();
-        vector<int> v;
+        vector<int> v(n);
         int cnt= 1;
-        while(i<n && j<n)
+        while(k<n)
         {
-            if(pos && i<n)
+            if(k%2==0)
             {
                 while(i<n && nums[i]<0)
                     i=i+1;
-                v.push_back(nums[i]);
+              
+                v[k] = nums[i];
                 i=i+1;
             }
-            if(!pos || (pos && i>=n))
+            else
             {
                while(j<n && nums[j]>=0)
                     j=j+1;
-                v.push_back(nums[j]);
+                v[k] = nums[j];
                 j=j+1;
             }
-            pos = !pos;
+            k++;
         }
       
               
