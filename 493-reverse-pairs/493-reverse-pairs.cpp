@@ -2,10 +2,11 @@ class Solution {
 public:
     void merge(vector<int>&nums,int l,int m,int r,int &cnt)
     {
+         
         int j=m+1;
-        for(int i=l;i<=m;i++)
+        for(int i=l;i<m+1;i++)
         {
-            while(j<=r && (nums[i])>(2LL*nums[j]))
+            while(j<=r && (nums[i] > (2LL*nums[j])))
                 j++;
             cnt+=(j-(m+1));
         }
