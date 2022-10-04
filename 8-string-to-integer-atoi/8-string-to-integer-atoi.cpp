@@ -22,7 +22,7 @@ public:
                 {
                     if(isng)
                     {
-                        return(-1-(INT_MAX));
+                        return INT_MIN;
                     }
                     return (INT_MAX);
                 }
