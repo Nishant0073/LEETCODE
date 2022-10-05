@@ -28,7 +28,8 @@ public:
     bool isMatch(string s, string p) {
          int n = s.size();
         int m = p.size();
-        vector<vector<bool>> dp (n+1,vector<bool>(m+1,false));
+        int dp[n+1][m+1];
+        memset(dp,false,sizeof(dp));
         // return findMatch(s,p,s.size()-1,p.size()-1,dp);
         dp[0][0] = true;
         int k=0;
