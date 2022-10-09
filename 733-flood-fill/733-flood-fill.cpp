@@ -6,10 +6,10 @@ public:
         
         if(image[sr][sc]==color)
             return image;
-       
+        vector<vector<bool>> vis(n,vector<bool>(m,false));
         queue<pair<int,int>> que;
         que.push({sr,sc});
-       
+        vis[sr][sc] = true;
         int repcolor = image[sr][sc];
         int delr[] = {-1,1,0,0};
         int delc[] = {0,0,-1,1};
@@ -24,8 +24,8 @@ public:
             {
                 int nowr = r+delr[i];
                 int nowc = c+delc[i];
-            if(nowr>=0 &&  nowr<n && nowc<m && nowc>=0 && image[nowr][nowc]==repcolor ){
-                   
+            if(nowr>=0 &&  nowr<n && nowc<m && nowc>=0 && image[nowr][nowc]==repcolor && !vis[nowr][nowc]){
+                    vis[nowr][nowc] = true;
                     que.push({nowr,nowc});
                 }
             }
