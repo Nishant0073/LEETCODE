@@ -1,8 +1,8 @@
 class NumArray {
 public:
     int n ;
-    vector<int> t;
-    void build(vector<int> &nums,vector<int> &t,int l,int r,int v)
+    int t[1000000];
+    void build(vector<int> &nums,int l,int r,int v)
     {
         if(l>r)
             return;
@@ -12,20 +12,20 @@ public:
         }
         else{
             int m = (l+r)/2;
-            build(nums,t,l,m,v*2+1);
-            build(nums,t,m+1,r,v*2+2);
+            build(nums,l,m,v*2+1);
+            build(nums,m+1,r,v*2+2);
             t[v] = t[v*2+1]+t[v*2+2];
         }
 
     }
     NumArray(vector<int>& nums) {
        n = nums.size();
-        vector<int> tmp(n*4,0);
-        t = tmp;
-        build(nums,t,0,n-1,0);
+       for(int i=0;i<n*4;i++)
+           t[i] = 0;
+        build(nums,0,n-1,0);
     }
     
-    int getSum(vector<int> &t,int l,int r,int ql,int qr,int v)
+    int getSum(int l,int r,int ql,int qr,int v)
     {
         if(ql>r || qr<l)
             return 0;
@@ -33,12 +33,12 @@ public:
             return t[v];
         int m = (l+r)/2;
         
-        return (getSum(t,l,m,ql,qr,v*2+1)+getSum(t,m+1,r,ql,qr,v*2+2));
+        return (getSum(l,m,ql,qr,v*2+1)+getSum(m+1,r,ql,qr,v*2+2));
     }
     
     int sumRange(int left, int right) {
         //return 0;
-        return getSum(t,0,n-1,left,right,0);
+        return getSum(0,n-1,left,right,0);
     }
 };
 
