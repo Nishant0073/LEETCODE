@@ -1,15 +1,15 @@
-class NumArray {
-public:
+class SGT{
     vector<int> sgt;
     vector<int> arr;
+    public:
     int n;
-    NumArray(vector<int>& nums) {
+    SGT(vector<int> &nums)
+    {
         n = nums.size();
         sgt = vector<int>(n*4,0);
         arr = nums;
-        build(0,n-1,0);
+        this->build(0,n-1,0);
     }
-    
     void build(int l,int r,int v){
         if(l==r)
             sgt[v] = arr[l];
@@ -33,9 +33,18 @@ public:
         return (getSum(l,m,ql,qr,v*2+1)+getSum(m+1,r,ql,qr,v*2+2));
         
     }
+};
+class NumArray {
+public:
+   SGT *sgt;
+    NumArray(vector<int>& nums) {
+      sgt = new SGT(nums);
+    }
+    
+
     
     int sumRange(int left, int right) {
-        return getSum(0,n-1,left,right,0);
+        return sgt->getSum(0,sgt->n-1,left,right,0);
     }
 };
 
