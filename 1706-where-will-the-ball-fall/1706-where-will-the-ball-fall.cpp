@@ -11,15 +11,11 @@ public:
                 return -1;
             return solve(m,n,i+1,j+1,grid,i);
         }
-        else
-        {
+        
             if(j-1<0 || grid[i][j]!=grid[i][j-1])
-            {
-                
+     
                 return -1;
-            }
             return solve(m,n,i+1,j-1,grid,i);
-        }
     }
     vector<int> findBall(vector<vector<int>>& grid) {
         int m = grid.size();
